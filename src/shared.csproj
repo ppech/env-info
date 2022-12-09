@@ -1,0 +1,23 @@
+﻿<Project>
+
+  <PropertyGroup>
+    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
+    <Authors>ppech</Authors>
+  </PropertyGroup>
+
+  <Target Name="PopulateInfo" DependsOnTargets="GitInfo" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <RepositoryBranch>$(GitBranch)</RepositoryBranch>
+      <RepositoryCommit>$(GitCommit)</RepositoryCommit>
+      <SourceRevisionId>$(GitBranch) $(GitCommit)</SourceRevisionId>
+    </PropertyGroup>
+  </Target>
+
+  <Target Name="_SetVersion" BeforeTargets="GetAssemblyVersion;GenerateNuspec;GetPackageContents">
+    <PropertyGroup>
+      <Version>$(GitBaseVersionMajor).$(GitBaseVersionMinor).$(GitBaseVersionPatch).$(GitCommits)</Version>
+      <PackageVersion>$(Version)</PackageVersion>
+    </PropertyGroup>
+  </Target>
+
+</Project>

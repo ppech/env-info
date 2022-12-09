@@ -1,12 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <Import Project="..\shared.csproj"/>
+
   <ItemGroup>
     <PackageReference Include="DotVVM.AspNetCore" Version="4.0.10" />
+    <PackageReference Include="GitInfo" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
