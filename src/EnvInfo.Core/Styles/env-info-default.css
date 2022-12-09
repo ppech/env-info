@@ -1,0 +1,23 @@
+.env-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.25rem;
+    z-index: 2000;
+    overflow-y: visible;
+    background: red;
+}
+
+.env-info-name {
+    background: red;
+    font-weight: bold;
+    color: white;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+}
