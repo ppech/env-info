@@ -1,10 +1,26 @@
 {
   "profiles": {
-    "EnvInfoSample": {
+    "Development": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Staging": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      },
+      "applicationUrl": "http://localhost:5000"
+    },
+    "Production (Beta)": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "applicationUrl": "http://localhost:5000"
     }
