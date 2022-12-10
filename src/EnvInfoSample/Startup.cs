@@ -34,8 +34,7 @@ namespace EnvInfoSample
 
             services.AddDotVVM<DotvvmStartup>();
 
-            services.AddRazorPages()
-                .AddEnvInfoTagHelpers();
+            services.AddRazorPages();
 		}
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
