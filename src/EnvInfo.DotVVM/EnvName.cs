@@ -2,32 +2,25 @@
 using DotVVM.Framework.Hosting;
 using EnvInfo.Core;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace EnvInfo.DotVVM
 {
-
-	public class EnvInfo : CompositeControl
+	public class EnvName : CompositeControl
 	{
-		public DotvvmControl GetContents(IDotvvmRequestContext context, ITemplate? content = null)
+		public DotvvmControl GetContents(IDotvvmRequestContext context)
 		{
 			var options = context.Services.GetRequiredService<EnvInfoOptions>();
 
 			if (options.Visible)
 			{
-				var control = new HtmlGenericControl("div")
-					.AddCssClass("env-info");
-
-				if (content != null)
-				{
-					control.AppendChildren(
-						new HtmlGenericControl("div")
-							.AddCssClass("content")
-							.AppendChildren(
-								new TemplateHost(content)
-					));
-				}
-
-				return control;
+				return new HtmlGenericControl("div")
+					.AddCssClass("env-info-name")
+					.SetProperty(p => p.InnerText, options.Name);
 			}
 
 			else

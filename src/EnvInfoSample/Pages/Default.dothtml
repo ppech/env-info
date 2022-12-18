@@ -172,5 +172,10 @@
 
     </main>
 
+    <dot:EnvInfo>
+        <span>env:</span>
+        <dot:EnvName />
+        <span>--</span>
+    </dot:EnvInfo>
 </dot:Content>
 

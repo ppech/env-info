@@ -9,15 +9,16 @@
     background: red;
 }
 
-.env-info-name {
-    background: red;
-    font-weight: bold;
-    color: white;
-    padding: 0.125rem 0.5rem;
-    font-size: 0.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    .env-info > .content {
+        background: red;
+        color: white;
+        display: flex;
+        font-size: 0.8rem;
+        font-weight: bold;
+        left: 50%;
+        padding: 0.125rem 0.5rem;
+        position: fixed;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translateX(-50%);
+    }

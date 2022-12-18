@@ -16,29 +16,24 @@ namespace EnvInfo.Mvc.TagHelpers
 			this.options = options;
 		}
 
-		public override int Order => 2;
-
 		public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
 		{
 			if (options.Visible)
 			{
 				output.TagName = "div";
-				output.AddClass("env-info", HtmlEncoder.Default);
-				if (output.Content.IsEmptyOrWhiteSpace)
-				{
-					output.Content.AppendHtml("<div class=\"env-info\">");
-					output.Content.AppendHtml("<div class=\"env-info-name\">" + options.Name + "</div>");
-					output.Content.AppendHtml("</div>");
-				}
+				output.Attributes.SetAttribute("class", "env-info");
+				output.PreContent.AppendHtml("<div class=\"content\">");
+
+				output.PostContent.AppendHtml("</div>");
 
 				using var stream = typeof(EnvInfoOptions).GetTypeInfo().Assembly.GetManifestResourceStream("EnvInfo.Core.Styles.env-info-default.css");
 				if (stream != null)
 				{
 					using var reader = new StreamReader(stream);
 
-					output.PostContent.AppendHtml("<style>");
-					output.PostContent.AppendHtml(await reader.ReadToEndAsync());
-					output.PostContent.AppendHtml("</style>");
+					output.PostElement.AppendHtml("<style>");
+					output.PostElement.AppendHtml(await reader.ReadToEndAsync());
+					output.PostElement.AppendHtml("</style>");
 				}
 			}
 			else
