@@ -13,9 +13,16 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-	public static class ServiceCollectionExtensions
-	{
-		public static IServiceCollection AddEnvInfo(this IServiceCollection services)
+    /// <summary>
+    /// Extension methods for setting up EnvInfo services in an <see cref="IServiceCollection" />.
+    /// </summary>
+    public static class ServiceCollectionExtensions
+    {
+        /// <summary>
+        /// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+        public static IServiceCollection AddEnvInfo(this IServiceCollection services)
 		{
 			services.TryAddSingleton<EnvInfoOptions>(p =>
 			{
