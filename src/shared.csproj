@@ -1,8 +1,15 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
     <Authors>ppech</Authors>
+    <Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
+    <Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
+    <PackageTags>mvc razor pages dotvvm enviroment info</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <Target Name="PopulateInfo" DependsOnTargets="GitInfo" BeforeTargets="PrepareForBuild">
@@ -16,8 +23,10 @@
   <Target Name="_SetVersion" BeforeTargets="GetAssemblyVersion;GenerateNuspec;GetPackageContents">
     <PropertyGroup>
       <Version>$(GitBaseVersionMajor).$(GitBaseVersionMinor).$(GitBaseVersionPatch).$(GitCommits)</Version>
-      <PackageVersion>$(Version)</PackageVersion>
     </PropertyGroup>
   </Target>
 
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 </Project>

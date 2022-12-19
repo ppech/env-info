@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvInfo.DotVVM", "EnvInfo.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvInfo.Mvc", "EnvInfo.Mvc\EnvInfo.Mvc.csproj", "{7F04266D-BE20-45ED-AF73-18BF8FEB68BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvInfo.Core", "EnvInfo.Core\EnvInfo.Core.csproj", "{680D97F0-BBF2-4B3C-971E-CB8F7F44251A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvInfo.Core", "EnvInfo.Core\EnvInfo.Core.csproj", "{680D97F0-BBF2-4B3C-971E-CB8F7F44251A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{548A11D8-037F-4145-AC61-C22B0A7A427D}"
+	ProjectSection(SolutionItems) = preProject
+		..\tools\pack.ps1 = ..\tools\pack.ps1
+		shared.csproj = shared.csproj
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
