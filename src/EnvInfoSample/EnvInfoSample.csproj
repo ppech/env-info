@@ -15,10 +15,10 @@
 
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\EnvInfo.DotVVM\EnvInfo.DotVVM.csproj" />
     <ProjectReference Include="..\EnvInfo.Mvc\EnvInfo.Mvc.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 </Project>

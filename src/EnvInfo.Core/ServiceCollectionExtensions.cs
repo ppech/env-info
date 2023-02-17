@@ -22,13 +22,14 @@ namespace Microsoft.Extensions.DependencyInjection
         /// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
-        public static IServiceCollection AddEnvInfo(this IServiceCollection services)
+		/// <param name="options">Default options</param>
+        public static IServiceCollection AddEnvInfo(this IServiceCollection services, EnvInfoOptions options = null)
 		{
 			services.TryAddSingleton<EnvInfoOptions>(p =>
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
-				var options = EnvInfoOptions.CreateDefaultSettings(env);
+				options ??= EnvInfoOptions.CreateDefaultSettings(env);
 
 				var envInfoSection = configuration.GetSection("EnvInfo");
 				if (envInfoSection != null)
@@ -41,5 +42,32 @@ namespace Microsoft.Extensions.DependencyInjection
 
 			return services;
 		}
-	}
+
+        /// <summary>
+        /// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+		/// <param name="name">Default name</param>
+        public static IServiceCollection AddEnvInfo(this IServiceCollection services, string name)
+		{
+            services.TryAddSingleton<EnvInfoOptions>(p =>
+            {
+                var configuration = p.GetRequiredService<IConfiguration>();
+                var env = p.GetRequiredService<IHostEnvironment>();
+                var options = EnvInfoOptions.CreateDefaultSettings(env);
+                options.Name = name;
+
+                var envInfoSection = configuration.GetSection("EnvInfo");
+                if (envInfoSection != null)
+                {
+                    envInfoSection.Bind(options);
+                }
+
+                return options;
+            });
+
+            return services;
+        }
+
+    }
 }

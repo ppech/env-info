@@ -30,7 +30,7 @@ namespace EnvInfoSample
             services.AddWebEncoders();
             services.AddAuthentication();
 
-            services.AddEnvInfo();
+            services.AddEnvInfo("CUSTOM");
 
             services.AddDotVVM<DotvvmStartup>();
 
