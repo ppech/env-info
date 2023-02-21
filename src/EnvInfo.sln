@@ -14,8 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{548A11D8-037F-4145-AC61-C22B0A7A427D}"
 	ProjectSection(SolutionItems) = preProject
 		..\tools\pack.ps1 = ..\tools\pack.ps1
-		..\tools\setversion.ps1 = ..\tools\setversion.ps1
-		shared.csproj = shared.csproj
 	EndProjectSection
 EndProject
 Global

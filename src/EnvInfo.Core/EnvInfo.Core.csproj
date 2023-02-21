@@ -1,14 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
     <Nullable>enable</Nullable>
     <PackageId>EnvInfo</PackageId>
-    <PackageVersion>0.0.3</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Version>1.0.0</Version>
   </PropertyGroup>
 
-  <Import Project="..\shared.csproj" />
+  <PropertyGroup>
+    <Authors>ppech</Authors>
+    <Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
+    <Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
+    <PackageTags>mvc razor pages dotvvm enviroment info</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Styles\env-info-default.css" />
