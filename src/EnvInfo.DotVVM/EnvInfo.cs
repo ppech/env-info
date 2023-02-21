@@ -5,10 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace EnvInfo.DotVVM
 {
-
 	public class EnvInfo : CompositeControl
 	{
-		public DotvvmControl GetContents(IDotvvmRequestContext context, ITemplate? content = null)
+		public DotvvmControl GetContents(IDotvvmRequestContext context, TextOrContentCapability content)
 		{
 			var options = context.Services.GetRequiredService<EnvInfoOptions>();
 
@@ -23,7 +22,7 @@ namespace EnvInfo.DotVVM
 						new HtmlGenericControl("div")
 							.AddCssClass("content")
 							.AppendChildren(
-								new TemplateHost(content)
+								content.ToControls()
 					));
 				}
 
