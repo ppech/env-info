@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
-				options ??= EnvInfoOptions.CreateDefaultSettings(env);
+				options = options ?? EnvInfoOptions.CreateDefaultSettings(env);
 
 				var envInfoSection = configuration.GetSection("EnvInfo");
 				if (envInfoSection != null)

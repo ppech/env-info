@@ -4,8 +4,8 @@
     <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
     <Nullable>enable</Nullable>
     <PackageId>EnvInfo.DotVVM</PackageId>
-    <PackageVersion>4.0.0.1</PackageVersion>
-    <Version>4.0.0.1</Version>
+    <PackageVersion>4.0.0.2</PackageVersion>
+    <Version>4.0.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup>

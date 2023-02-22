@@ -1,41 +1,44 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <PackageId>EnvInfo.MVC</PackageId>
-    <PackageVersion>6.0.0.1</PackageVersion>
-    <Version>6.0.0.1</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;netcoreapp3.1</TargetFrameworks>
+		<PackageId>EnvInfo.MVC</PackageId>
+		<PackageVersion>6.0.0.2</PackageVersion>
+		<Version>6.0.0.2</Version>
+	</PropertyGroup>
 
-  <PropertyGroup>
-    <Authors>ppech</Authors>
-    <Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
-    <Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
-    <PackageTags>mvc razor pages dotvvm enviroment info</PackageTags>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>ppech</Authors>
+		<Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
+		<Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
+		<PackageTags>mvc razor pages dotvvm enviroment info</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Include="../../README.md" Pack="true" PackagePath="/"/>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="../../README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" Version="6.0.0" Exclude="Build,Analyzers" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="6.0.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="GitInfo" Version="2.3.0">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-  </ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<PackageReference Include="Microsoft.AspNetCore.Razor" Version="2.2.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EnvInfo.Core\EnvInfo.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="GitInfo" Version="2.3.0">
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EnvInfo.Core\EnvInfo.Core.csproj" />
+	</ItemGroup>
+
 </Project>
