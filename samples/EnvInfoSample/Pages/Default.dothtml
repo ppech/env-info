@@ -175,7 +175,12 @@
     <dot:EnvInfo>
         <span>env:</span>
         <dot:EnvName />
-        <span>--</span>
+        <span>|</span>
+        <dot:BootstrapBreakpoints Breakpoints="xs sm md lg xl xxl" />
+        <span>|</span>
+        <dot:Bootstrap4Breakpoints />
+        <span>|</span>
+        <dot:Bootstrap5Breakpoints />
     </dot:EnvInfo>
 </dot:Content>
 
