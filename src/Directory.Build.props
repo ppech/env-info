@@ -1,0 +1,18 @@
+<Project>
+  <!-- See https://aka.ms/dotnet/msbuild/customize for more details on customizing your build -->
+  <PropertyGroup>
+
+    <Authors>ppech</Authors>
+    <Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
+    <Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/ppech/env-info</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ppech/env-info</RepositoryUrl>
+    <PackageTags>mvc razor pages dotvvm enviroment env info</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageOutputPath>../../publish/</PackageOutputPath>
+
+  </PropertyGroup>
+</Project>
