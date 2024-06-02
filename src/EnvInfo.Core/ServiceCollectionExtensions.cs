@@ -5,29 +5,26 @@ using Microsoft.Extensions.Hosting;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    /// <summary>
-    /// Extension methods for setting up EnvInfo services in an <see cref="IServiceCollection" />.
-    /// </summary>
-    public static class ServiceCollectionExtensions
-    {
-        /// <summary>
-        /// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+	/// <summary>
+	/// Extension methods for setting up EnvInfo services in an <see cref="IServiceCollection" />.
+	/// </summary>
+	public static class ServiceCollectionExtensions
+	{
+		/// <summary>
+		/// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
+		/// </summary>
+		/// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
 		/// <param name="options">Default options</param>
-        public static IServiceCollection AddEnvInfo(this IServiceCollection services, EnvInfoOptions options = null)
+		public static IServiceCollection AddEnvInfo(this IServiceCollection services, EnvInfoOptions options = null)
 		{
-			services.TryAddSingleton<EnvInfoOptions>(p =>
+			services.TryAddSingleton(p =>
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
 				options = options ?? EnvInfoOptions.CreateDefaultSettings(env);
 
 				var envInfoSection = configuration.GetSection("EnvInfo");
-				if (envInfoSection != null)
-				{
-					envInfoSection.Bind(options);
-				}
+				envInfoSection?.Bind(options);
 
 				return options;
 			});
@@ -35,31 +32,50 @@ namespace Microsoft.Extensions.DependencyInjection
 			return services;
 		}
 
-        /// <summary>
-        /// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
-        /// </summary>
-        /// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
-		/// <param name="name">Default name</param>
-        public static IServiceCollection AddEnvInfo(this IServiceCollection services, string name)
+		/// <summary>
+		/// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
+		/// </summary>
+		/// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+		/// <param name="envName">Custom enviroment name</param>
+		public static IServiceCollection AddEnvInfo(this IServiceCollection services, string envName)
 		{
-            services.TryAddSingleton<EnvInfoOptions>(p =>
-            {
-                var configuration = p.GetRequiredService<IConfiguration>();
-                var env = p.GetRequiredService<IHostEnvironment>();
-                var options = EnvInfoOptions.CreateDefaultSettings(env);
-                options.Name = name;
+			services.TryAddSingleton(p =>
+			{
+				var configuration = p.GetRequiredService<IConfiguration>();
+				var env = p.GetRequiredService<IHostEnvironment>();
+				var options = EnvInfoOptions.CreateDefaultSettings(env);
 
-                var envInfoSection = configuration.GetSection("EnvInfo");
-                if (envInfoSection != null)
-                {
-                    envInfoSection.Bind(options);
-                }
+				var envInfoSection = configuration.GetSection("EnvInfo");
+				envInfoSection?.Bind(options);
 
-                return options;
-            });
+				options.Name = envName;
 
-            return services;
-        }
+				return options;
+			});
 
-    }
+			return services;
+		}
+
+		/// <summary>
+		/// Adds EnvInfo services to the specified <see cref="IServiceCollection" />.
+		/// </summary>
+		/// <param name="services">The <see cref="IServiceCollection" /> to add services to.</param>
+		/// <param name="envInfoSection">Custom configuration section</param>
+		public static IServiceCollection AddEnvInfo(this IServiceCollection services, IConfiguration envInfoSection)
+		{
+			services.TryAddSingleton(p =>
+			{
+				var configuration = p.GetRequiredService<IConfiguration>();
+				var env = p.GetRequiredService<IHostEnvironment>();
+				var options = EnvInfoOptions.CreateDefaultSettings(env);
+
+				envInfoSection.Bind(options);
+
+				return options;
+			});
+
+			return services;
+		}
+
+	}
 }
