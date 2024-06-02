@@ -1,17 +1,14 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using DotVVM.Framework.Routing;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using DotVVM.Framework.Hosting;
-using DotVVM.Framework.Routing;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using EnvInfo.Mvc.TagHelpers;
 
 namespace EnvInfoSample
 {
-    public class Startup
+	public class Startup
     {
 
         public IConfiguration Configuration { get; private set; }
