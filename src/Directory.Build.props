@@ -4,7 +4,7 @@
 
     <Authors>ppech</Authors>
     <Copyright>Copyright (C) Pavel Pech. All rights reserved.</Copyright>
-    <Description>Enviroment info controls for Mvc/RazorPages and DotVVM</Description>
+    <Description>EnvInfo is a collection of Mvc/RazorPages tag helpers and DotVVM controls that provides environment information for your application.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
