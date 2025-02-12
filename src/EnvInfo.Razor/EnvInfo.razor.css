@@ -1,0 +1,25 @@
+﻿.env-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.25rem;
+    z-index: 2000;
+    overflow-y: visible;
+    background: red;
+}
+
+    .env-info > .content {
+        background: red;
+        color: white;
+        display: flex;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        font-weight: bold;
+        left: 50%;
+        padding: 0.25rem 0.5rem 0.125rem 0.5rem;
+        position: fixed;
+        text-align: center;
+        text-transform: uppercase;
+        transform: translateX(-50%);
+    }

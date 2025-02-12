@@ -1,0 +1,27 @@
+﻿@inherits LayoutComponentBase
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+
+    <EnvInfo.Razor.EnvInfo>
+        <span>env:</span>
+        <EnvInfo.Razor.EnvName />
+        <span>|</span>
+        <EnvInfo.Razor.BsBreakpoints Breakpoints="xs sm md lg xl xxl" />
+        <span>|</span>
+        <EnvInfo.Razor.Bs4Breakpoints />
+        <span>|</span>
+        <EnvInfo.Razor.Bs5Breakpoints />
+    </EnvInfo.Razor.EnvInfo>
+</div>

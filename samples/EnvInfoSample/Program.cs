@@ -1,28 +1,67 @@
-using Microsoft.AspNetCore;
+using DotVVM.Framework.Routing;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System.Threading.Tasks;
+using EnvInfo.Razor;
 
 namespace EnvInfoSample
 {
-    public class Program
+	public static class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            BuildWebHost(args).Run();
-        }
+			var builder = WebApplication.CreateBuilder(args);
 
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .ConfigureLogging((context, builder) =>
-                {
-                    builder.AddConsole();
-                })
-                .Build();
+			builder.Services.AddDataProtection();
+			builder.Services.AddAuthorization();
+			builder.Services.AddWebEncoders();
+			builder.Services.AddAuthentication();
+
+			builder.Services.AddEnvInfo("CUSTOM");
+
+			builder.Services.AddDotVVM<DotvvmStartup>();
+
+			builder.Services.AddRazorPages();
+			builder.Services.AddRazorComponents();
+			builder.Services.AddServerSideBlazor();
+
+			var app = builder.Build();
+
+			if (app.Environment.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+			}
+			else
+			{
+				app.UseExceptionHandler("/error");
+				app.UseHttpsRedirection();
+				app.UseHsts();
+			}
+
+			app.UseWebAssemblyDebugging();
+
+			app.UseRouting();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+			app.UseBlazorFrameworkFiles();
+			app.UseBlazorEnvInfo();
+			app.UseStaticFiles();
+
+			app.MapRazorPages();
+
+			// use DotVVM
+			var dotvvmConfiguration = app.UseDotVVM<DotvvmStartup>(builder.Environment.ContentRootPath);
+			dotvvmConfiguration.AssertConfigurationIsValid();
+			app.UseDotvvmHotReload();
+
+			app.MapBlazorHub();
+			app.MapFallbackToFile("index.html");
+
+			await app.RunAsync();
+		}
     }
 }

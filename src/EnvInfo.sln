@@ -10,15 +10,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvInfo.Core", "EnvInfo.Core\EnvInfo.Core.csproj", "{680D97F0-BBF2-4B3C-971E-CB8F7F44251A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "others", "others", "{548A11D8-037F-4145-AC61-C22B0A7A427D}"
-	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
-		..\tools\pack.ps1 = ..\tools\pack.ps1
-		..\README.md = ..\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{49CFC709-E36D-4029-9B80-FA20D6870866}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvInfoSample", "..\samples\EnvInfoSample\EnvInfoSample.csproj", "{5B21865C-7B03-4015-B3AF-622279F4E0DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvInfoSampleBlazorWasm", "..\samples\EnvInfoSampleBlazorWasm\EnvInfoSampleBlazorWasm.csproj", "{AB6366F8-E9BF-4515-9099-AB0C41DB7480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnvInfo.Razor", "EnvInfo.Razor\EnvInfo.Razor.csproj", "{7460A121-2C70-417A-87E2-7E663CD19CBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,12 +41,21 @@ Global
 		{5B21865C-7B03-4015-B3AF-622279F4E0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B21865C-7B03-4015-B3AF-622279F4E0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B21865C-7B03-4015-B3AF-622279F4E0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6366F8-E9BF-4515-9099-AB0C41DB7480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6366F8-E9BF-4515-9099-AB0C41DB7480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6366F8-E9BF-4515-9099-AB0C41DB7480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6366F8-E9BF-4515-9099-AB0C41DB7480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7460A121-2C70-417A-87E2-7E663CD19CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7460A121-2C70-417A-87E2-7E663CD19CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7460A121-2C70-417A-87E2-7E663CD19CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7460A121-2C70-417A-87E2-7E663CD19CBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5B21865C-7B03-4015-B3AF-622279F4E0DB} = {49CFC709-E36D-4029-9B80-FA20D6870866}
+		{AB6366F8-E9BF-4515-9099-AB0C41DB7480} = {49CFC709-E36D-4029-9B80-FA20D6870866}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9257A7E5-83A0-4AD4-8F23-031E4673605F}

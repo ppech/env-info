@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnvInfoSample.Pages
 {
-    public class IndexModel : PageModel
+    public class MvcModel : PageModel
     {
         public void OnGet()
         {

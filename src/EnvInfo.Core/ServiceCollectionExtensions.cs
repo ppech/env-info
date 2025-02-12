@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
-				options = options ?? EnvInfoOptions.CreateDefaultSettings(env);
+				options = options ?? EnvInfoOptions.InitializeDefaultOptions(env.EnvironmentName);
 
 				var envInfoSection = configuration.GetSection("EnvInfo");
 				envInfoSection?.Bind(options);
@@ -43,7 +43,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
-				var options = EnvInfoOptions.CreateDefaultSettings(env);
+				var options = EnvInfoOptions.InitializeDefaultOptions(env.EnvironmentName);
 
 				var envInfoSection = configuration.GetSection("EnvInfo");
 				envInfoSection?.Bind(options);
@@ -67,7 +67,7 @@ namespace Microsoft.Extensions.DependencyInjection
 			{
 				var configuration = p.GetRequiredService<IConfiguration>();
 				var env = p.GetRequiredService<IHostEnvironment>();
-				var options = EnvInfoOptions.CreateDefaultSettings(env);
+				var options = EnvInfoOptions.InitializeDefaultOptions(env.EnvironmentName);
 
 				envInfoSection.Bind(options);
 

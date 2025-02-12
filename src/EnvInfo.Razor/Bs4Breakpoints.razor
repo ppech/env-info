@@ -1,0 +1,16 @@
+@code {
+    private static readonly char[] separators = [' ', ',', ';'];
+    public string breakpoints = "xs sm md lg xl";
+}
+
+@{
+    var bs = breakpoints.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+}
+<div class="env-info-bs-breakpoints">
+    <div class="d-@(bs[1])-none">@bs[0]</div>
+    @for (int i = 1; i < bs.Length - 1; i++)
+    {
+        <div class="d-none d-@(bs[i])-block d-@(bs[i + 1])-none">@bs[i]</div>
+    }
+    <div class="d-none d-@(bs[^1])-block">@bs[^1]</div>
+</div>

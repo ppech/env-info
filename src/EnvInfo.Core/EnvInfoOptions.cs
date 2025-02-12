@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.Hosting;
 
 namespace EnvInfo.Core
 {
@@ -20,28 +18,28 @@ namespace EnvInfo.Core
 		public bool Visible { get; set; }
 
 		/// <summary>
-		/// Creates the default settings for the EnvInfo service based on the provided host environment.
+		/// Initializes the default options for the EnvInfo service.
 		/// </summary>
-		/// <param name="env">The host environment.</param>
+		/// <param name="environmentName">The name of the environment.</param>
 		/// <returns>The default EnvInfo options.</returns>
-		public static EnvInfoOptions CreateDefaultSettings(IHostEnvironment env)
+		public static EnvInfoOptions InitializeDefaultOptions(string environmentName)
 		{
 			return new EnvInfoOptions()
 			{
 				Name = GetName(),
-				Visible = env.IsDevelopment()
+				Visible = "Development".Equals(environmentName, StringComparison.OrdinalIgnoreCase)
 			};
 
 			string GetName()
 			{
-				if (env.IsDevelopment())
+				if ("Development".Equals(environmentName, StringComparison.OrdinalIgnoreCase))
 					return "DEV";
-				if (env.IsStaging())
+				if ("Staging".Equals(environmentName, StringComparison.OrdinalIgnoreCase))
 					return "STAG";
-				if (env.IsProduction())
+				if ("Production".Equals(environmentName, StringComparison.OrdinalIgnoreCase))
 					return "PROD";
 
-				return env.EnvironmentName;
+				return environmentName;
 			}
 		}
 	}
