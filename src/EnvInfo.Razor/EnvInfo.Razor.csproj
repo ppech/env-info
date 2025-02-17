@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	  <TargetFrameworks>net8.0</TargetFrameworks>
-	  <PackageId>EnvInfo.MVC</PackageId>
+	  <PackageId>EnvInfo.Razor</PackageId>
 	  <PackageVersion>8.0.13.0</PackageVersion>
 	  <Version>8.0.13.0</Version>
     <Nullable>enable</Nullable>
