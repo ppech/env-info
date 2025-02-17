@@ -81,7 +81,27 @@ Below is an example of usage with custom html and predefined tag helper
 </env-info>
 ```
 
+### Blazor WASM / Razor Components
+[![Latest version](https://img.shields.io/nuget/v/EnvInfo.Razor.svg)](https://www.nuget.org/packages/EnvInfo.Razor)
 
+In `Program.cs` of Server app add this line of code below `app.UseBlazorFrameworkFiles()`, which registers endpoint for fetching environment information.
+```csharp
+app.UseBlazorEnvInfo();
+```
+
+Then in `Program.cs` of Blazor WASM app add this line of code to builder
+```csharp
+await builder.AddEnvInfo();
+```
+
+And finally add this lines of code before `</body>` element
+```html
+<EnvInfo.Razor.EnvInfo>
+    <EnvInfo.Razor.EnvName />
+    <span>|</span>
+    <EnvInfo.Razor.Bs4Breakpoints />
+</EnvInfo.Razor.EnvInfo>
+```
 
 ### DotVVM
 [![Latest version](https://img.shields.io/nuget/v/EnvInfo.DotVVM.svg)](https://www.nuget.org/packages/EnvInfo.DotVVM)
